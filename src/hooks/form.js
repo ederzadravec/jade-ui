@@ -1,0 +1,97 @@
+import React from 'react';
+import * as R from 'ramda';
+
+import { useState } from './';
+
+export const useForm = (
+  { initialValues, validations } = { initialValues: {}, validations: {} }
+) => {
+  const [{ values, errors, touched, triedSave }, setState] = useState({
+    values: {},
+    errors: {},
+    touched: [],
+    triedSave: false,
+  });
+
+  React.useEffect(() => {
+    const data = initialValues || {};
+
+    const newErrors = { ...validateData(data) };
+    setState({ values: data, errors: newErrors });
+  }, []);
+
+  const validateData = (data = {}) => {
+    return Object.keys(validations).reduce((acc, key) => {
+      const error = R.reduceWhile(
+        (acc, v) => !acc,
+        (acc, v) => (v[0](getValue(key, data), data) ? v[1] : acc),
+        null,
+        validations[key]
+      );
+
+      return { ...acc, ...(error ? { [key]: error } : {}) };
+    }, []);
+  };
+
+  const onChange = React.useCallback(
+    (name, remove = []) => (value) => {
+      const data = { [name]: value };
+
+      setValues(data, remove);
+    },
+    [values]
+  );
+
+  const setValues = (data, remove = []) => {
+    const newValues = { ...R.omit(remove, values), ...data };
+    const newErrors = { ...validateData(newValues) };
+    const newTouched = [...touched, ...Object.keys(data)];
+
+    setState({
+      values: newValues,
+      errors: newErrors,
+      touched: [...new Set(newTouched)],
+    });
+  };
+
+  const setError = (errors) => {
+    const newTouched = [...touched, ...Object.keys(errors)];
+    setState({
+      errors,
+      touched: [...new Set(newTouched)],
+    });
+  };
+
+  const getError = (name) => {
+    return errors[name] && (touched.indexOf(name) !== -1 || triedSave) ? errors[name] : null;
+  };
+
+  const getValue = (name, data = values) => {
+    return data[name] === undefined ? null : data[name];
+  };
+
+  const trySave = (callback = () => {}) => (e) => {
+    if (!R.isEmpty(errors) && !R.isNil(errors)) {
+      e.preventDefault();
+      e.stopPropagation();
+      setState({ triedSave: true });
+      return false;
+    }
+
+    callback(e);
+  };
+
+  const form = {
+    hasErrors: !R.isEmpty(errors) && !R.isNil(errors),
+    getValue,
+    setError,
+    getError,
+    errors,
+    values,
+    touched,
+    trySave,
+    setValues,
+  };
+
+  return [form, onChange];
+};
