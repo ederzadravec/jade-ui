@@ -1,0 +1,30 @@
+{
+  "name": "@ederzadravec/jade-ui",
+  "version": "1.0.1",
+  "main": "dist/index.js",
+  "files": [
+    "build/*"
+  ],
+  "repository": "git@github.com:ederzadravec/jade-ui.git",
+  "author": "Eder Zadravec",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d build"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "ramda": "^0.27.1",
+    "react": "^16.13.1",
+    "react-icons": "^3.11.0",
+    "react-spinners": "^0.9.0",
+    "react-text-mask": "^5.4.3",
+    "styled-components": "^5.2.0",
+    "throttle-debounce": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4"
+  }
+}
