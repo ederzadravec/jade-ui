@@ -10,11 +10,11 @@ export {
   Grid,
   Loader,
   PhotoUpload,
+  Provider,
   Select,
   Space,
   Switch,
   TableList,
   TextArea,
   TextInput,
-  Theme,
 } from './components';

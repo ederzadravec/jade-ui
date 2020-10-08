@@ -98,7 +98,10 @@ var getTheme = function getTheme() {
     palette: _objectSpread(_objectSpread({}, palette), {}, {
       readableColor: readableColor,
       getContrastText: getContrastText,
-      colors: colors
+      colors: {
+        white: '#fff',
+        black: '#000'
+      }
     }),
     components: _objectSpread({
       header: _objectSpread({

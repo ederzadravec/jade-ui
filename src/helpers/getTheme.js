@@ -87,7 +87,10 @@ export const getTheme = (theme = {}) => {
       ...palette,
       readableColor,
       getContrastText,
-      colors,
+      colors: {
+        white: '#fff',
+        black: '#000',
+      },
     },
     components: {
       header: {

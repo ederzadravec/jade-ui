@@ -14,7 +14,7 @@ var _helpers = require("../../helpers");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  * {\n    box-sizing: border-box;\n    font-family: 'Open Sans';\n    font-size: 12px;\n  }\n\n  html {\n    height: 100vh;\n  }\n\n  body {\n    min-height: 100vh;\n    margin: 0;\n    padding: 0;\n    border: 0;\n  };\n\n  #root {\n    min-height: 100vh;\n    display: flex;\n  }\n\n"]);
+  var data = _taggedTemplateLiteral(["\n  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');\n\n  * {\n    box-sizing: border-box;\n    font-family: 'Open Sans';\n    font-size: 12px;\n  }\n\n  html {\n    height: 100vh;\n  }\n\n  body {\n    min-height: 100vh;\n    margin: 0;\n    padding: 0;\n    border: 0;\n  };\n\n  #root {\n    min-height: 100vh;\n    display: flex;\n  }\n\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -36,6 +36,6 @@ var Provider = function Provider(_ref) {
 };
 
 exports.Provider = Provider;
-Theme.defaultProps = {
+Provider.defaultProps = {
   theme: {}
 };

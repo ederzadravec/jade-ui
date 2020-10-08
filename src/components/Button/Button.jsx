@@ -3,24 +3,7 @@ import styled, { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import { BeatLoader } from 'react-spinners';
 
-const RealButton = styled.button`
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-
-  border: none;
-  background: transparent;
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-const Container = styled.div`
+const Container = styled.button`
   position: relative;
   display: flex;
   width: 136px;
@@ -28,15 +11,13 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  cursor: pointer;
 
   border-radius: 4px;
   border: ${({ theme, color }) => `1px solid ${theme.palette[color].main}`};
   background: ${({ theme, color }) => theme.palette[color].main};
   overflow: hidden;
-
-  ${RealButton}:hover {
-    background: rgba(0, 0, 0, 0.1);
-  }
+  border-radius: ${({ theme }) => theme.components.button.borderRadius}px;
 
   ${({ variant, theme }) => {
     if (variant === 'outline')
@@ -49,12 +30,23 @@ const Container = styled.div`
           background-color: transparent;
           border: none;
         `;
-
-    if (variant === 'rounded')
-      return `
-        border-radius: 44px;
-      `;
   }}
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: ${({ theme, color }) => theme.palette[color].dark};
+
+    ${({ variant, theme }) => {
+      if (['outline', 'transparent'].includes(variant)) {
+        return `
+          background-color: rgba(0, 0, 0, 0.05);
+        `;
+      }
+    }}
+  }
 `;
 
 const Label = styled.label`
@@ -117,7 +109,7 @@ export const Button = ({
   }
 
   return (
-    <Container variant={variant} color={color} disabled={disabled} style={style}>
+    <Container variant={variant} color={color} disabled={disabled} style={style} {...props}>
       {iconBefore && <ButtonIcon as={iconBefore} variant={variant} color={color} margin="right" />}
 
       <Label variant={variant} color={color}>
@@ -125,8 +117,6 @@ export const Button = ({
       </Label>
 
       {iconAfter && <ButtonIcon as={iconAfter} variant={variant} color={color} margin="left" />}
-
-      <RealButton {...props} />
     </Container>
   );
 };
@@ -140,7 +130,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  variant: PropTypes.oneOf(['default', 'outline', 'transparent', 'rounded']),
+  variant: PropTypes.oneOf(['default', 'outline', 'transparent']),
   color: PropTypes.oneOf(['primary', 'error', 'alert', 'success']),
   onClick: PropTypes.func,
   disabled: PropTypes.bool,

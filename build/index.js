@@ -41,6 +41,12 @@ Object.defineProperty(exports, "PhotoUpload", {
     return _components.PhotoUpload;
   }
 });
+Object.defineProperty(exports, "Provider", {
+  enumerable: true,
+  get: function get() {
+    return _components.Provider;
+  }
+});
 Object.defineProperty(exports, "Select", {
   enumerable: true,
   get: function get() {
@@ -75,12 +81,6 @@ Object.defineProperty(exports, "TextInput", {
   enumerable: true,
   get: function get() {
     return _components.TextInput;
-  }
-});
-Object.defineProperty(exports, "Theme", {
-  enumerable: true,
-  get: function get() {
-    return _components.Theme;
   }
 });
 exports.hooks = exports.helpers = void 0;

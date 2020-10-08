@@ -1,0 +1,65 @@
+---
+route: /button
+name: Button
+menu: Componentes
+---
+
+import { Props } from 'docz';
+import Playground from '../../Playground';
+import { Space } from '../Space/Space';
+import { Button } from './Button'
+
+# Button
+
+## How to use
+
+```
+import {} from '@ederzadravec@jade-ui'
+
+...
+
+<Button {...props}> LABEL </Button>
+```
+
+## Props
+
+<Props of={Button} />
+
+## Examples
+
+### variants
+
+<Playground direction="row">
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <Button variant="default">Clique aqui</Button>
+
+    <Space left={3}/>
+
+    <Button variant="outline">Clique aqui</Button>
+
+    <Space left={3}/>
+
+    <Button variant="transparent">Clique aqui</Button>
+  </div>
+</Playground>
+
+
+### colors
+
+<Playground direction="row">
+  <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <Button color="primary">Clique aqui</Button>
+
+    <Space left={3}/>
+
+    <Button color="error">Clique aqui</Button>
+
+    <Space left={3}/>
+
+    <Button color="alert">Clique aqui</Button>
+
+    <Space left={3}/>
+
+    <Button color="success">Clique aqui</Button>
+  </div>
+</Playground>
