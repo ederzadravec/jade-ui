@@ -4,20 +4,21 @@ import PropTypes from 'prop-types';
 import { BeatLoader } from 'react-spinners';
 
 const Container = styled.button`
+  ${({ theme }) => console.log('pqp', { theme })};
   position: relative;
   display: flex;
-  width: 136px;
-  height: 36px;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   cursor: pointer;
 
-  border-radius: 4px;
   border: ${({ theme, color }) => `1px solid ${theme.palette[color].main}`};
   background: ${({ theme, color }) => theme.palette[color].main};
   overflow: hidden;
-  border-radius: ${({ theme }) => theme.components.button.borderRadius}px;
+  border-radius: ${({ theme }) => theme.components.button.borderRadius};
+  border-width: ${({ theme }) => theme.components.button.borderWidth};
+  height: ${({ theme }) => theme.components.button.height};
+  width: ${({ theme }) => theme.components.button.width};
 
   ${({ variant, theme }) => {
     if (variant === 'outline')
@@ -51,13 +52,14 @@ const Container = styled.button`
 
 const Label = styled.label`
   color: ${({ theme }) => theme.palette.colors.white};
-  font-size: 12px;
   font-weight: bold;
   cursor: pointer;
 
   justify-content: center;
   align-items: center;
   align-self: center;
+  padding: ${({ theme }) => theme.components.button.labelPadding};
+  font-size: ${({ theme }) => theme.components.button.labelFontSize};
 
   ${({ variant, color, theme }) => {
     if (variant === 'outline' || variant === 'transparent')

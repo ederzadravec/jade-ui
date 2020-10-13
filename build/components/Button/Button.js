@@ -21,22 +21,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  font-size: 30px;\n  color: ", ";\n\n  ", ";\n\n  ", "\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  color: ", ";\n  font-size: 12px;\n  font-weight: bold;\n  cursor: pointer;\n\n  justify-content: center;\n  align-items: center;\n  align-self: center;\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  font-size: 30px;\n  color: ", ";\n\n  ", ";\n\n  ", "\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -46,7 +38,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  position: relative;\n  display: flex;\n  width: 136px;\n  height: 36px;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n\n  border-radius: 4px;\n  border: ", ";\n  background: ", ";\n  overflow: hidden;\n\n  ", ":hover {\n    background: rgba(0, 0, 0, 0.1);\n  }\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  color: ", ";\n  font-weight: bold;\n  cursor: pointer;\n\n  justify-content: center;\n  align-items: center;\n  align-self: center;\n  padding: ", ";\n  font-size: ", ";\n\n  ", "\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -56,7 +48,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  position: absolute;\n  top: 0;\n  left: 0;\n  cursor: pointer;\n  width: 100%;\n  height: 100%;\n\n  border: none;\n  background: transparent;\n\n  &:focus {\n    outline: none;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  ", ";\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  cursor: pointer;\n\n  border: ", ";\n  background: ", ";\n  overflow: hidden;\n  border-radius: ", ";\n  border-width: ", ";\n  height: ", ";\n  width: ", ";\n\n  ", "\n\n  &:focus {\n    outline: none;\n  }\n\n  &:hover {\n    background-color: ", ";\n\n    ", "\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -67,58 +59,89 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var RealButton = _styledComponents["default"].button(_templateObject());
-
-var Container = _styledComponents["default"].div(_templateObject2(), function (_ref) {
-  var theme = _ref.theme,
-      color = _ref.color;
-  return "1px solid ".concat(theme.palette[color].main);
+var Container = _styledComponents["default"].button(_templateObject(), function (_ref) {
+  var theme = _ref.theme;
+  return console.log('pqp', {
+    theme: theme
+  });
 }, function (_ref2) {
   var theme = _ref2.theme,
       color = _ref2.color;
+  return "1px solid ".concat(theme.palette[color].main);
+}, function (_ref3) {
+  var theme = _ref3.theme,
+      color = _ref3.color;
   return theme.palette[color].main;
-}, RealButton, function (_ref3) {
-  var variant = _ref3.variant,
-      theme = _ref3.theme;
-  if (variant === 'outline') return "\n        background-color: transparent;\n      ";
-  if (variant === 'transparent') return "\n          background-color: transparent;\n          border: none;\n        ";
-  if (variant === 'rounded') return "\n        border-radius: 44px;\n      ";
-});
-
-var Label = _styledComponents["default"].label(_templateObject3(), function (_ref4) {
+}, function (_ref4) {
   var theme = _ref4.theme;
-  return theme.palette.colors.white;
+  return theme.components.button.borderRadius;
 }, function (_ref5) {
-  var variant = _ref5.variant,
-      color = _ref5.color,
-      theme = _ref5.theme;
-  if (variant === 'outline' || variant === 'transparent') return "\n        color: ".concat(theme.palette[color].main, ";\n      ");
-});
-
-var ButtonIcon = _styledComponents["default"].span(_templateObject4(), function (_ref6) {
+  var theme = _ref5.theme;
+  return theme.components.button.borderWidth;
+}, function (_ref6) {
   var theme = _ref6.theme;
-  return theme.palette.colors.white;
+  return theme.components.button.height;
 }, function (_ref7) {
-  var margin = _ref7.margin,
-      theme = _ref7.theme;
-  return "margin-".concat(margin, ": ").concat(theme.spacing.unit, "px");
+  var theme = _ref7.theme;
+  return theme.components.button.width;
 }, function (_ref8) {
   var variant = _ref8.variant,
-      color = _ref8.color,
       theme = _ref8.theme;
+  if (variant === 'outline') return "\n        background-color: transparent;\n      ";
+  if (variant === 'transparent') return "\n          background-color: transparent;\n          border: none;\n        ";
+}, function (_ref9) {
+  var theme = _ref9.theme,
+      color = _ref9.color;
+  return theme.palette[color].dark;
+}, function (_ref10) {
+  var variant = _ref10.variant,
+      theme = _ref10.theme;
+
+  if (['outline', 'transparent'].includes(variant)) {
+    return "\n          background-color: rgba(0, 0, 0, 0.05);\n        ";
+  }
+});
+
+var Label = _styledComponents["default"].label(_templateObject2(), function (_ref11) {
+  var theme = _ref11.theme;
+  return theme.palette.colors.white;
+}, function (_ref12) {
+  var theme = _ref12.theme;
+  return theme.components.button.labelPadding;
+}, function (_ref13) {
+  var theme = _ref13.theme;
+  return theme.components.button.labelFontSize;
+}, function (_ref14) {
+  var variant = _ref14.variant,
+      color = _ref14.color,
+      theme = _ref14.theme;
   if (variant === 'outline' || variant === 'transparent') return "\n        color: ".concat(theme.palette[color].main, ";\n      ");
 });
 
-var Button = function Button(_ref9) {
-  var children = _ref9.children,
-      variant = _ref9.variant,
-      colorProp = _ref9.color,
-      disabled = _ref9.disabled,
-      iconBefore = _ref9.iconBefore,
-      iconAfter = _ref9.iconAfter,
-      style = _ref9.style,
-      loading = _ref9.loading,
-      props = _objectWithoutProperties(_ref9, ["children", "variant", "color", "disabled", "iconBefore", "iconAfter", "style", "loading"]);
+var ButtonIcon = _styledComponents["default"].span(_templateObject3(), function (_ref15) {
+  var theme = _ref15.theme;
+  return theme.palette.colors.white;
+}, function (_ref16) {
+  var margin = _ref16.margin,
+      theme = _ref16.theme;
+  return "margin-".concat(margin, ": ").concat(theme.spacing.unit, "px");
+}, function (_ref17) {
+  var variant = _ref17.variant,
+      color = _ref17.color,
+      theme = _ref17.theme;
+  if (variant === 'outline' || variant === 'transparent') return "\n        color: ".concat(theme.palette[color].main, ";\n      ");
+});
+
+var Button = function Button(_ref18) {
+  var children = _ref18.children,
+      variant = _ref18.variant,
+      colorProp = _ref18.color,
+      disabled = _ref18.disabled,
+      iconBefore = _ref18.iconBefore,
+      iconAfter = _ref18.iconAfter,
+      style = _ref18.style,
+      loading = _ref18.loading,
+      props = _objectWithoutProperties(_ref18, ["children", "variant", "color", "disabled", "iconBefore", "iconAfter", "style", "loading"]);
 
   var theme = _react["default"].useContext(_styledComponents.ThemeContext);
 
@@ -137,12 +160,12 @@ var Button = function Button(_ref9) {
     }));
   }
 
-  return /*#__PURE__*/_react["default"].createElement(Container, {
+  return /*#__PURE__*/_react["default"].createElement(Container, _extends({
     variant: variant,
     color: color,
     disabled: disabled,
     style: style
-  }, iconBefore && /*#__PURE__*/_react["default"].createElement(ButtonIcon, {
+  }, props), iconBefore && /*#__PURE__*/_react["default"].createElement(ButtonIcon, {
     as: iconBefore,
     variant: variant,
     color: color,
@@ -155,7 +178,7 @@ var Button = function Button(_ref9) {
     variant: variant,
     color: color,
     margin: "left"
-  }), /*#__PURE__*/_react["default"].createElement(RealButton, props));
+  }));
 };
 
 exports.Button = Button;
@@ -167,7 +190,7 @@ Button.defaultProps = {
   loading: false
 };
 Button.propTypes = {
-  variant: _propTypes["default"].oneOf(['default', 'outline', 'transparent', 'rounded']),
+  variant: _propTypes["default"].oneOf(['default', 'outline', 'transparent']),
   color: _propTypes["default"].oneOf(['primary', 'error', 'alert', 'success']),
   onClick: _propTypes["default"].func,
   disabled: _propTypes["default"].bool,

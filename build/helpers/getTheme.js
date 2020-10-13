@@ -90,7 +90,7 @@ var defaultPalette = function defaultPalette() {
 };
 
 var getTheme = function getTheme() {
-  var _theme$components, _theme$typography;
+  var _theme$components, _theme$components2, _theme$typography;
 
   var theme = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var palette = defaultPalette(theme);
@@ -111,9 +111,14 @@ var getTheme = function getTheme() {
         textAlign: 'center',
         fontWeight: 'bold'
       }, (_theme$components = theme.components) === null || _theme$components === void 0 ? void 0 : _theme$components.header),
-      button: {
-        borderRadius: 5
-      }
+      button: _objectSpread({
+        height: '36px',
+        width: '140px',
+        borderRadius: '5px',
+        borderWidth: '2px',
+        labelPadding: '0',
+        labelFontSize: '12px'
+      }, (_theme$components2 = theme.components) === null || _theme$components2 === void 0 ? void 0 : _theme$components2.button)
     }, theme.components),
     spacing: _objectSpread({
       unit: 8

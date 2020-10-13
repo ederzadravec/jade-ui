@@ -1,4 +1,4 @@
-const hexToRGB = (color) => {
+const hexToRGB = color => {
   let newColor = color;
 
   if (newColor.indexOf('#') === 0) {
@@ -20,7 +20,7 @@ const hexToRGB = (color) => {
   };
 };
 
-const readableColor = (hex) => {
+const readableColor = hex => {
   const color = hexToRGB(hex);
 
   const r = parseInt(color.red, 16);
@@ -102,7 +102,13 @@ export const getTheme = (theme = {}) => {
         ...theme.components?.header,
       },
       button: {
-        borderRadius: 5,
+        height: '36px',
+        width: '140px',
+        borderRadius: '5px',
+        borderWidth: '2px',
+        labelPadding: '0',
+        labelFontSize: '12px',
+        ...theme.components?.button,
       },
       ...theme.components,
     },
