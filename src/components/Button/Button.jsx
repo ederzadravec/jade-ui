@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { BeatLoader } from 'react-spinners';
 
 const Container = styled.button`
-  ${({ theme }) => console.log('pqp', { theme })};
   position: relative;
   display: flex;
   align-items: center;
@@ -60,6 +59,7 @@ const Label = styled.label`
   align-self: center;
   padding: ${({ theme }) => theme.components.button.labelPadding};
   font-size: ${({ theme }) => theme.components.button.labelFontSize};
+  font-family: ${({ theme }) => theme.components.button.fontFamily};
 
   ${({ variant, color, theme }) => {
     if (variant === 'outline' || variant === 'transparent')
@@ -90,7 +90,7 @@ export const Button = ({
   disabled,
   iconBefore,
   iconAfter,
-  style,
+  onClick,
   loading,
   ...props
 }) => {
@@ -104,14 +104,14 @@ export const Button = ({
         ? theme.palette[color].main
         : theme.palette.colors.white;
     return (
-      <Container variant={variant} color={color} style={style}>
+      <Container variant={variant} color={color} {...props}>
         <BeatLoader size={8} margin={4} color={spinnerCollor} />
       </Container>
     );
   }
 
   return (
-    <Container variant={variant} color={color} disabled={disabled} style={style} {...props}>
+    <Container variant={variant} color={color} disabled={disabled} onClick={onClick} {...props} >
       {iconBefore && <ButtonIcon as={iconBefore} variant={variant} color={color} margin="right" />}
 
       <Label variant={variant} color={color}>

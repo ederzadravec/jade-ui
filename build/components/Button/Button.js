@@ -38,7 +38,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  color: ", ";\n  font-weight: bold;\n  cursor: pointer;\n\n  justify-content: center;\n  align-items: center;\n  align-self: center;\n  padding: ", ";\n  font-size: ", ";\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  color: ", ";\n  font-weight: bold;\n  cursor: pointer;\n\n  justify-content: center;\n  align-items: center;\n  align-self: center;\n  padding: ", ";\n  font-size: ", ";\n  font-family: ", ";\n\n  ", "\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -48,7 +48,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  ", ";\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  cursor: pointer;\n\n  border: ", ";\n  background: ", ";\n  overflow: hidden;\n  border-radius: ", ";\n  border-width: ", ";\n  height: ", ";\n  width: ", ";\n\n  ", "\n\n  &:focus {\n    outline: none;\n  }\n\n  &:hover {\n    background-color: ", ";\n\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  cursor: pointer;\n\n  border: ", ";\n  background: ", ";\n  overflow: hidden;\n  border-radius: ", ";\n  border-width: ", ";\n  height: ", ";\n  width: ", ";\n\n  ", "\n\n  &:focus {\n    outline: none;\n  }\n\n  &:hover {\n    background-color: ", ";\n\n    ", "\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -60,57 +60,55 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var Container = _styledComponents["default"].button(_templateObject(), function (_ref) {
-  var theme = _ref.theme;
-  return console.log('pqp', {
-    theme: theme
-  });
+  var theme = _ref.theme,
+      color = _ref.color;
+  return "1px solid ".concat(theme.palette[color].main);
 }, function (_ref2) {
   var theme = _ref2.theme,
       color = _ref2.color;
-  return "1px solid ".concat(theme.palette[color].main);
-}, function (_ref3) {
-  var theme = _ref3.theme,
-      color = _ref3.color;
   return theme.palette[color].main;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.components.button.borderRadius;
 }, function (_ref4) {
   var theme = _ref4.theme;
-  return theme.components.button.borderRadius;
+  return theme.components.button.borderWidth;
 }, function (_ref5) {
   var theme = _ref5.theme;
-  return theme.components.button.borderWidth;
+  return theme.components.button.height;
 }, function (_ref6) {
   var theme = _ref6.theme;
-  return theme.components.button.height;
-}, function (_ref7) {
-  var theme = _ref7.theme;
   return theme.components.button.width;
-}, function (_ref8) {
-  var variant = _ref8.variant,
-      theme = _ref8.theme;
+}, function (_ref7) {
+  var variant = _ref7.variant,
+      theme = _ref7.theme;
   if (variant === 'outline') return "\n        background-color: transparent;\n      ";
   if (variant === 'transparent') return "\n          background-color: transparent;\n          border: none;\n        ";
-}, function (_ref9) {
-  var theme = _ref9.theme,
-      color = _ref9.color;
+}, function (_ref8) {
+  var theme = _ref8.theme,
+      color = _ref8.color;
   return theme.palette[color].dark;
-}, function (_ref10) {
-  var variant = _ref10.variant,
-      theme = _ref10.theme;
+}, function (_ref9) {
+  var variant = _ref9.variant,
+      theme = _ref9.theme;
 
   if (['outline', 'transparent'].includes(variant)) {
     return "\n          background-color: rgba(0, 0, 0, 0.05);\n        ";
   }
 });
 
-var Label = _styledComponents["default"].label(_templateObject2(), function (_ref11) {
-  var theme = _ref11.theme;
+var Label = _styledComponents["default"].label(_templateObject2(), function (_ref10) {
+  var theme = _ref10.theme;
   return theme.palette.colors.white;
+}, function (_ref11) {
+  var theme = _ref11.theme;
+  return theme.components.button.labelPadding;
 }, function (_ref12) {
   var theme = _ref12.theme;
-  return theme.components.button.labelPadding;
+  return theme.components.button.labelFontSize;
 }, function (_ref13) {
   var theme = _ref13.theme;
-  return theme.components.button.labelFontSize;
+  return theme.components.button.fontFamily;
 }, function (_ref14) {
   var variant = _ref14.variant,
       color = _ref14.color,
@@ -139,9 +137,9 @@ var Button = function Button(_ref18) {
       disabled = _ref18.disabled,
       iconBefore = _ref18.iconBefore,
       iconAfter = _ref18.iconAfter,
-      style = _ref18.style,
+      onClick = _ref18.onClick,
       loading = _ref18.loading,
-      props = _objectWithoutProperties(_ref18, ["children", "variant", "color", "disabled", "iconBefore", "iconAfter", "style", "loading"]);
+      props = _objectWithoutProperties(_ref18, ["children", "variant", "color", "disabled", "iconBefore", "iconAfter", "onClick", "loading"]);
 
   var theme = _react["default"].useContext(_styledComponents.ThemeContext);
 
@@ -149,11 +147,10 @@ var Button = function Button(_ref18) {
 
   if (loading) {
     var spinnerCollor = variant === 'outline' || variant === 'transparent' ? theme.palette[color].main : theme.palette.colors.white;
-    return /*#__PURE__*/_react["default"].createElement(Container, {
+    return /*#__PURE__*/_react["default"].createElement(Container, _extends({
       variant: variant,
-      color: color,
-      style: style
-    }, /*#__PURE__*/_react["default"].createElement(_reactSpinners.BeatLoader, {
+      color: color
+    }, props), /*#__PURE__*/_react["default"].createElement(_reactSpinners.BeatLoader, {
       size: 8,
       margin: 4,
       color: spinnerCollor
@@ -164,7 +161,7 @@ var Button = function Button(_ref18) {
     variant: variant,
     color: color,
     disabled: disabled,
-    style: style
+    onClick: onClick
   }, props), iconBefore && /*#__PURE__*/_react["default"].createElement(ButtonIcon, {
     as: iconBefore,
     variant: variant,

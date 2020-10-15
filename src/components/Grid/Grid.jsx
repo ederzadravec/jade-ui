@@ -10,11 +10,12 @@ const Container = styled.section`
 `;
 
 const Content = styled.div`
+  height: max-content;
   ${({ theme, size }) => `
     width: ${(100 / 12) * (size.xl || size.lg || size.md || size.sm || size.xs || 12)}%;
 
     ${Object.keys(size)
-      .map((key) => theme.screens[key](`width:${(100 / 12) * size[key]}%`, size[key]))
+      .map(key => theme.screens[key](`width:${(100 / 12) * size[key]}%`, size[key]))
       .join(';')}
   `}
 `;

@@ -18,7 +18,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  height: max-content;\n  ", "\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
