@@ -1,0 +1,52 @@
+---
+route: /grid
+name: Grid
+menu: Componentes
+---
+
+import { Props } from 'docz';
+import Playground from '../../Playground';
+import { Grid } from './Grid';
+import { TextInput } from '../TextInput/TextInput'
+
+# Grid
+
+## How to use
+
+```
+import { Grid } from '@ederzadravec@jade-ui'
+
+...
+
+<Grid container>                                // Row/Container
+  <Grid size={{ md: 12 }}> CONTENT </Grid>      // Column
+</Grid>
+```
+
+## Props
+
+```
+container   bool      false         // Row/Container of columns
+size        {}        { md: 12 }    // Size of column
+
+```
+
+## Examples
+
+<Playground>
+
+<Grid container>
+  <Grid size={{ md: 12 }}><TextInput label="input-1"/></Grid>
+
+  <Grid size={{ md: 6 }}><TextInput label="input-2"/></Grid>
+
+  <Grid size={{ md: 6 }}><TextInput label="input-3"/></Grid>
+
+  <Grid size={{ md: 4 }}><TextInput label="input-4"/></Grid>
+
+  <Grid size={{ md: 4 }}><TextInput label="input-5"/></Grid>
+
+  <Grid size={{ md: 4 }}><TextInput label="input-6"/></Grid>
+</Grid>
+
+</Playground>

@@ -1,0 +1,103 @@
+---
+route: /form
+name: FormGrid
+menu: Componentes
+---
+
+import { Props } from 'docz';
+import Playground from '../../Playground';
+import { FormGrid } from './FormGrid';
+import { TextInput } from '../TextInput/TextInput'
+
+# Button
+
+## How to use
+
+```
+import { FormGrid } from '@ederzadravec@jade-ui'
+
+...
+
+<FormGrid config={[]} />
+```
+
+## Props
+
+```
+  config = [                        // Rows
+    [                             // Columns
+      {                           // Column
+        schema: 'field1',         // name, id, key
+        size: { md: 6 },          // responsible width (xs, sm , md, lg, xl),
+        hide: () => {},           // return true to hide,
+        type: TextInput,          // Component to render
+        props: (schema) => ({})   // props of component
+      }
+    ]
+  ]
+```
+
+## Examples
+
+<Playground>
+
+<FormGrid config={
+  [
+    [
+      {
+        schema: 'field-1',
+        size: { md: 12 },
+        type: TextInput,
+        props: () => ({
+          label: 'Field 1',
+        }),
+      },
+    ],
+    [
+      {
+        schema: 'field-2',
+        size: { md: 6 },
+        type: TextInput,
+        props: () => ({
+          label: 'Field 2',
+        }),
+      },
+      {
+        schema: 'field-3',
+        size: { md: 6 },
+        type: TextInput,
+        props: () => ({
+          label: 'Field 3',
+        }),
+      },
+    ],
+    [
+      {
+        schema: 'field-4',
+        size: { md: 4 },
+        type: TextInput,
+        props: () => ({
+          label: 'Field 4',
+        }),
+      },
+      {
+        schema: 'field-5',
+        size: { md: 4 },
+        type: TextInput,
+        props: () => ({
+          label: 'Field 5',
+        }),
+      },
+      {
+        schema: 'field-6',
+        size: { md: 4 },
+        type: TextInput,
+        props: () => ({
+          label: 'Field 6',
+        }),
+      },
+    ],
+  ]
+}/>
+
+</Playground>
