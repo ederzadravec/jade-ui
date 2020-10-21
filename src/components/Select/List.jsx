@@ -24,7 +24,7 @@ const Container = styled.div`
   border-bottom-right-radius: 8px;
 
   background: #fff;
-  border: 1px solid ${({ theme }) => theme.palette.colors.grey[300]};
+  border: 1px solid #BBB;
   z-index: 1001;
 
   display: ${({ visible }) => (visible ? 'block' : 'none')};

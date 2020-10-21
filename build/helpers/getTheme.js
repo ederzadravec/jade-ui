@@ -90,7 +90,7 @@ var defaultPalette = function defaultPalette() {
 };
 
 var getTheme = function getTheme() {
-  var _theme$components, _theme$components2, _theme$typography;
+  var _theme$components, _theme$components2, _theme$components3, _theme$typography;
 
   var theme = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var palette = defaultPalette(theme);
@@ -118,7 +118,10 @@ var getTheme = function getTheme() {
         borderWidth: '2px',
         labelPadding: '0',
         labelFontSize: '12px'
-      }, (_theme$components2 = theme.components) === null || _theme$components2 === void 0 ? void 0 : _theme$components2.button)
+      }, (_theme$components2 = theme.components) === null || _theme$components2 === void 0 ? void 0 : _theme$components2.button),
+      textInput: _objectSpread({
+        lineColor: '#BBB'
+      }, theme === null || theme === void 0 ? void 0 : (_theme$components3 = theme.components) === null || _theme$components3 === void 0 ? void 0 : _theme$components3.textInput)
     }, theme.components),
     spacing: _objectSpread({
       unit: 8

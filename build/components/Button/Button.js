@@ -48,7 +48,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  cursor: pointer;\n\n  border: ", ";\n  background: ", ";\n  overflow: hidden;\n  border-radius: ", ";\n  border-width: ", ";\n  height: ", ";\n  width: ", ";\n\n  ", "\n\n  &:focus {\n    outline: none;\n  }\n\n  &:hover {\n    background-color: ", ";\n\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  cursor: pointer;\n\n  border: ", ";\n  background: ", ";\n  overflow: hidden;\n  border-radius: ", ";\n  border-width: ", ";\n  height: ", ";\n  width: ", ";\n\n  transition: 0.4s;\n\n  ", "\n\n  &:focus {\n    outline: none;\n  }\n\n  &:hover {\n    background-color: ", ";\n\n    ", "\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;

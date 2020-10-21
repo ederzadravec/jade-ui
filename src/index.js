@@ -6,6 +6,7 @@ export const hooks = hooksImport;
 export {
   BaseInput,
   Button,
+  BoxInput,
   FormGrid,
   Grid,
   Loader,

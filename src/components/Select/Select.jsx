@@ -31,7 +31,7 @@ const Label = styled.label`
 
 const Input = styled.input`
   border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.colors.grey[300]};
+  border-bottom: 1px solid #BBB;
   background: none;
   margin-top: 16px;
   color: ${({ theme }) => theme.palette.text.dark};

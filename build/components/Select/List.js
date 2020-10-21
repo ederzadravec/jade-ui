@@ -32,7 +32,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  width: 100%;\n  max-height: 250px;\n\n  top: 35px;\n  left: 0;\n\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n\n  background: #fff;\n  border: 1px solid ", ";\n  z-index: 1001;\n\n  display: ", ";\n  flex-direction: column;\n\n  overflow: auto;\n"]);
+  var data = _taggedTemplateLiteral(["\n  position: absolute;\n  width: 100%;\n  max-height: 250px;\n\n  top: 35px;\n  left: 0;\n\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n\n  background: #fff;\n  border: 1px solid #BBB;\n  z-index: 1001;\n\n  display: ", ";\n  flex-direction: column;\n\n  overflow: auto;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -59,30 +59,27 @@ var Mask = _styledComponents["default"].div(_templateObject(), function (_ref) {
 });
 
 var Container = _styledComponents["default"].div(_templateObject2(), function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.palette.colors.grey[300];
-}, function (_ref3) {
-  var visible = _ref3.visible;
+  var visible = _ref2.visible;
   return visible ? 'block' : 'none';
 });
 
 var Content = _styledComponents["default"].div(_templateObject3());
 
-var Item = _styledComponents["default"].span(_templateObject4(), function (_ref4) {
-  var active = _ref4.active,
-      theme = _ref4.theme;
+var Item = _styledComponents["default"].span(_templateObject4(), function (_ref3) {
+  var active = _ref3.active,
+      theme = _ref3.theme;
   return active ? theme.palette.colors.grey[100] : 'none';
-}, function (_ref5) {
-  var theme = _ref5.theme;
+}, function (_ref4) {
+  var theme = _ref4.theme;
   return theme.palette.colors.grey[50];
 });
 
-var List = function List(_ref6) {
-  var visible = _ref6.visible,
-      data = _ref6.data,
-      value = _ref6.value,
-      onClose = _ref6.onClose,
-      onChange = _ref6.onChange;
+var List = function List(_ref5) {
+  var visible = _ref5.visible,
+      data = _ref5.data,
+      value = _ref5.value,
+      onClose = _ref5.onClose,
+      onChange = _ref5.onChange;
 
   var handleSelect = function handleSelect(item) {
     onChange(item);

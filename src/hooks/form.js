@@ -34,7 +34,7 @@ export const useForm = (
   };
 
   const onChange = React.useCallback(
-    (name, remove = []) => (value) => {
+    (name, remove = []) => value => {
       const data = { [name]: value };
 
       setValues(data, remove);
@@ -54,7 +54,7 @@ export const useForm = (
     });
   };
 
-  const setError = (errors) => {
+  const setError = errors => {
     const newTouched = [...touched, ...Object.keys(errors)];
     setState({
       errors,
@@ -62,7 +62,7 @@ export const useForm = (
     });
   };
 
-  const getError = (name) => {
+  const getError = name => {
     return errors[name] && (touched.indexOf(name) !== -1 || triedSave) ? errors[name] : null;
   };
 
@@ -70,10 +70,11 @@ export const useForm = (
     return data[name] === undefined ? null : data[name];
   };
 
-  const trySave = (callback = () => {}) => (e) => {
+  const trySave = (callback = () => {}) => e => {
+    e.preventDefault();
+    e.stopPropagation();
+
     if (!R.isEmpty(errors) && !R.isNil(errors)) {
-      e.preventDefault();
-      e.stopPropagation();
       setState({ triedSave: true });
       return false;
     }

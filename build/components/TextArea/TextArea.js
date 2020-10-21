@@ -42,7 +42,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  border: none;\n  border-bottom: 1px solid ", ";\n  background: none;\n  margin-top: 16px;\n  color: ", ";\n  resize: vertical;\n\n  &:focus {\n    outline: none;\n    border-bottom: 1px solid ", ";\n  }\n\n  ", ";\n  text-align: ", ";\n"]);
+  var data = _taggedTemplateLiteral(["\n  border: none;\n  border-bottom: 1px solid #BBB;\n  background: none;\n  margin-top: 16px;\n  color: ", ";\n  resize: vertical;\n\n  &:focus {\n    outline: none;\n    border-bottom: 1px solid ", ";\n  }\n\n  ", ";\n  text-align: ", ";\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -77,19 +77,16 @@ var Label = _styledComponents["default"].label(_templateObject(), function (_ref
 
 var Input = _styledComponents["default"].textarea(_templateObject2(), function (_ref4) {
   var theme = _ref4.theme;
-  return theme.palette.colors.grey[300];
+  return theme.palette.text.dark;
 }, function (_ref5) {
   var theme = _ref5.theme;
-  return theme.palette.text.dark;
-}, function (_ref6) {
-  var theme = _ref6.theme;
   return theme.palette.primary.main;
-}, function (_ref7) {
-  var error = _ref7.error,
-      theme = _ref7.theme;
+}, function (_ref6) {
+  var error = _ref6.error,
+      theme = _ref6.theme;
   return error ? "border-color: ".concat(theme.palette.error.main) : '';
-}, function (_ref8) {
-  var align = _ref8.align;
+}, function (_ref7) {
+  var align = _ref7.align;
   return align;
 });
 
@@ -99,18 +96,18 @@ var createDebounce = function createDebounce(debounce) {
   });
 };
 
-var TextArea = function TextArea(_ref9) {
-  var label = _ref9.label,
-      error = _ref9.error,
-      align = _ref9.align,
-      valueProp = _ref9.value,
-      debounce = _ref9.debounce,
-      floatLabel = _ref9.floatLabel,
-      placeholder = _ref9.placeholder,
-      onFocus = _ref9.onFocus,
-      onChange = _ref9.onChange,
-      onBlur = _ref9.onBlur,
-      props = _objectWithoutProperties(_ref9, ["label", "error", "align", "value", "debounce", "floatLabel", "placeholder", "onFocus", "onChange", "onBlur"]);
+var TextArea = function TextArea(_ref8) {
+  var label = _ref8.label,
+      error = _ref8.error,
+      align = _ref8.align,
+      valueProp = _ref8.value,
+      debounce = _ref8.debounce,
+      floatLabel = _ref8.floatLabel,
+      placeholder = _ref8.placeholder,
+      onFocus = _ref8.onFocus,
+      onChange = _ref8.onChange,
+      onBlur = _ref8.onBlur,
+      props = _objectWithoutProperties(_ref8, ["label", "error", "align", "value", "debounce", "floatLabel", "placeholder", "onFocus", "onChange", "onBlur"]);
 
   var inputRef = _react["default"].useRef();
 

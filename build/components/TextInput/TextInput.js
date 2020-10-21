@@ -89,7 +89,7 @@ var Label = _styledComponents["default"].label(_templateObject(), function (_ref
 
 var Input = _styledComponents["default"].input(_templateObject2(), function (_ref4) {
   var theme = _ref4.theme;
-  return theme.palette.colors.grey[300];
+  return theme.components.textInput.lineColor;
 }, function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.text.dark;

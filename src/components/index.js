@@ -1,5 +1,6 @@
 export { BaseInput } from './BaseInput/BaseInput';
 export { Button } from './Button/Button';
+export { BoxInput } from './BoxInput/BoxInput';
 export { FormGrid } from './FormGrid/FormGrid';
 export { Grid } from './Grid/Grid';
 export { Loader } from './Loader/Loader';

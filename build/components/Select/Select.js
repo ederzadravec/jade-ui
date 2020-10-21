@@ -70,7 +70,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  border: none;\n  border-bottom: 1px solid ", ";\n  background: none;\n  margin-top: 16px;\n  color: ", ";\n\n  &:focus {\n    outline: none;\n    border-bottom: 1px solid ", ";\n  }\n\n  ", ";\n  text-align: ", ";\n"]);
+  var data = _taggedTemplateLiteral(["\n  border: none;\n  border-bottom: 1px solid #BBB;\n  background: none;\n  margin-top: 16px;\n  color: ", ";\n\n  &:focus {\n    outline: none;\n    border-bottom: 1px solid ", ";\n  }\n\n  ", ";\n  text-align: ", ";\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -105,40 +105,37 @@ var Label = _styledComponents["default"].label(_templateObject(), function (_ref
 
 var Input = _styledComponents["default"].input(_templateObject2(), function (_ref4) {
   var theme = _ref4.theme;
-  return theme.palette.colors.grey[300];
+  return theme.palette.text.dark;
 }, function (_ref5) {
   var theme = _ref5.theme;
-  return theme.palette.text.dark;
-}, function (_ref6) {
-  var theme = _ref6.theme;
   return theme.palette.primary.main;
-}, function (_ref7) {
-  var error = _ref7.error,
-      theme = _ref7.theme;
+}, function (_ref6) {
+  var error = _ref6.error,
+      theme = _ref6.theme;
   return error ? "border-color: ".concat(theme.palette.error.main) : '';
-}, function (_ref8) {
-  var align = _ref8.align;
+}, function (_ref7) {
+  var align = _ref7.align;
   return align;
 });
 
-var Icon = _styledComponents["default"].span(_templateObject3(), function (_ref9) {
-  var focus = _ref9.focus,
-      theme = _ref9.theme;
+var Icon = _styledComponents["default"].span(_templateObject3(), function (_ref8) {
+  var focus = _ref8.focus,
+      theme = _ref8.theme;
   return focus ? theme.palette.primary.main : theme.palette.text.dark;
 });
 
-var Select = function Select(_ref10) {
-  var multiple = _ref10.multiple,
-      valueProp = _ref10.value,
-      label = _ref10.label,
-      error = _ref10.error,
-      onChange = _ref10.onChange,
-      onFocus = _ref10.onFocus,
-      onBlur = _ref10.onBlur,
-      align = _ref10.align,
-      dataProp = _ref10.data,
-      configProp = _ref10.config,
-      props = _objectWithoutProperties(_ref10, ["multiple", "value", "label", "error", "onChange", "onFocus", "onBlur", "align", "data", "config"]);
+var Select = function Select(_ref9) {
+  var multiple = _ref9.multiple,
+      valueProp = _ref9.value,
+      label = _ref9.label,
+      error = _ref9.error,
+      onChange = _ref9.onChange,
+      onFocus = _ref9.onFocus,
+      onBlur = _ref9.onBlur,
+      align = _ref9.align,
+      dataProp = _ref9.data,
+      configProp = _ref9.config,
+      props = _objectWithoutProperties(_ref9, ["multiple", "value", "label", "error", "onChange", "onFocus", "onBlur", "align", "data", "config"]);
 
   var inputRef = _react["default"].useRef();
 

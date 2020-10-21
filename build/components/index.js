@@ -15,6 +15,12 @@ Object.defineProperty(exports, "Button", {
     return _Button.Button;
   }
 });
+Object.defineProperty(exports, "BoxInput", {
+  enumerable: true,
+  get: function get() {
+    return _BoxInput.BoxInput;
+  }
+});
 Object.defineProperty(exports, "FormGrid", {
   enumerable: true,
   get: function get() {
@@ -85,6 +91,8 @@ Object.defineProperty(exports, "TextInput", {
 var _BaseInput = require("./BaseInput/BaseInput");
 
 var _Button = require("./Button/Button");
+
+var _BoxInput = require("./BoxInput/BoxInput");
 
 var _FormGrid = require("./FormGrid/FormGrid");
 

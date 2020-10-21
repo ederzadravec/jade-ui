@@ -134,9 +134,10 @@ var useForm = function useForm() {
   var trySave = function trySave() {
     var callback = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
     return function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
       if (!R.isEmpty(errors) && !R.isNil(errors)) {
-        e.preventDefault();
-        e.stopPropagation();
         setState({
           triedSave: true
         });

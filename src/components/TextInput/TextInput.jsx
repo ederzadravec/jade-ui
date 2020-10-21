@@ -32,7 +32,7 @@ const Label = styled.label`
 
 const Input = styled.input`
   border: none;
-  border-bottom: 1px solid #BBB;
+  border-bottom: 1px solid ${({ theme }) => theme.components.textInput.lineColor};
   background: none;
   margin-top: 16px;
   color: ${({ theme }) => theme.palette.text.dark};

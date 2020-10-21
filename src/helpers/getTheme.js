@@ -110,6 +110,10 @@ export const getTheme = (theme = {}) => {
         labelFontSize: '12px',
         ...theme.components?.button,
       },
+      textInput: {
+        lineColor: '#BBB',
+        ...theme?.components?.textInput,
+      },
       ...theme.components,
     },
     spacing: {

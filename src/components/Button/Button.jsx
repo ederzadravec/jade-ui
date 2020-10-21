@@ -19,6 +19,8 @@ const Container = styled.button`
   height: ${({ theme }) => theme.components.button.height};
   width: ${({ theme }) => theme.components.button.width};
 
+  transition: 0.4s;
+
   ${({ variant, theme }) => {
     if (variant === 'outline')
       return `

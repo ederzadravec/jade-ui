@@ -17,6 +17,12 @@ Object.defineProperty(exports, "Button", {
     return _components.Button;
   }
 });
+Object.defineProperty(exports, "BoxInput", {
+  enumerable: true,
+  get: function get() {
+    return _components.BoxInput;
+  }
+});
 Object.defineProperty(exports, "FormGrid", {
   enumerable: true,
   get: function get() {
