@@ -123,7 +123,7 @@ export const PhotoUpload = ({
         {hasValue &&
           value.map((image, key) => (
             <ContentImage key={key}>
-              <Image src={R.is(String, image)  ?  image : URL.createObjectURL(image)} />
+              <Image src={image && R.is(String, image)  ?  image : URL.createObjectURL(image)} />
               <Remove onClick={() => handleOnRemove(key)}>excluir</Remove>
             </ContentImage>
           ))}
