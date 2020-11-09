@@ -22,11 +22,11 @@ const Label = styled.label`
     float
       ? `
       margin-top: 0px;
-      font-size: 10px
+      font-size: 12px
   `
       : `
-      margin-top: 16px;
-      font-size: 12px
+      margin-top: 20px;
+      font-size: 16px
     `}
 `;
 
@@ -34,8 +34,10 @@ const Input = styled.input`
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.components.textInput.lineColor};
   background: none;
+  font-size: 16px;
   margin-top: 16px;
   color: ${({ theme }) => theme.palette.text.dark};
+  height: 32px;
 
   &:focus {
     outline: none;
@@ -192,7 +194,10 @@ export const TextInput = ({
   });
 
   React.useEffect(() => {
-    if (value !== valueProp) setState({ value: valueProp });
+    if (value !== valueProp) {
+      if (!valueProp) inputRef.current.value = valueProp;
+      setState({ value: valueProp });
+    }
   }, [valueProp]);
 
   const onChangeDebounce = React.useCallback(createDebounce(debounce), []);

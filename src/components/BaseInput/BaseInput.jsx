@@ -7,14 +7,14 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
 
-  min-height: 56px;
+  min-height: 72px;
 
   margin-bottom: ${({ theme }) => theme.spacing.unit * 1}px;
 `;
 
 const Error = styled.label`
   margin-top: 4px;
-  font-size: 10px;
+  font-size: 12px;
   color: ${({ theme }) => theme.palette.error.main};
   text-align: ${({ align }) => align};
 `;

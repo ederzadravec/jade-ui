@@ -28,10 +28,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const Provider = ({ noDefaultCss, children, theme }) => {
+  const appTheme = React.useMemo(() => getTheme(theme), [theme]);
+
   return (
     <>
       {!noDefaultCss && <GlobalStyle />}
-      <ThemeProvider theme={getTheme(theme)}>{children}</ThemeProvider>
+      <ThemeProvider theme={appTheme}>
+        {children}
+        </ThemeProvider>
     </>
   );
 };

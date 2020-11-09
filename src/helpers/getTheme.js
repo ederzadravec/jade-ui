@@ -76,6 +76,16 @@ const defaultPalette = (theme = {}) => {
       text: getContrastText('#616161', text),
       ...theme.palette?.disabled,
     },
+    white: {
+      main: '#f7f7f7',
+      text: getContrastText('#f7f7f7', text),
+      ...theme.palette?.white,
+    },
+    black: {
+      main: '#111111',
+      text: getContrastText('#111111', text),
+      ...theme.palette?.black,
+    },
   };
 };
 

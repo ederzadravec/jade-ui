@@ -82,6 +82,15 @@ export const useForm = (
     callback(e);
   };
 
+  const clear = (data = {}) => {
+    setState(() => ({
+      values: data,
+      errors: validateData(data),
+      touched: [],
+      triedSave: false,
+    }));
+  };
+
   const form = {
     hasErrors: !R.isEmpty(errors) && !R.isNil(errors),
     getValue,
@@ -92,6 +101,7 @@ export const useForm = (
     touched,
     trySave,
     setValues,
+    clear,
   };
 
   return [form, onChange];
