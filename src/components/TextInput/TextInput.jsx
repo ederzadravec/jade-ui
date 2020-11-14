@@ -59,6 +59,7 @@ const unMask = (variant, value) => {
     cnpj: () => value.replace(/\D/g, ''),
     phone: () => value.replace(/\D/g, ''),
     'postal-code': () => value.replace(/\D/g, ''),
+    'credit-card': () => value.replace(/\D/g, ''),
   };
 
   return masks[variant] ? masks[variant]() : masks.default();
@@ -165,6 +166,30 @@ const getMask = (variant, config) => {
     'postal-code': () => ({
       mask: [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/],
     }),
+    'credit-card': () => ({
+      mask: [
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        ' ',
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        ' ',
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        ' ',
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+      ],
+    }),
+    custom: () => config,
   };
 
   return masks[variant] ? masks[variant]() : masks.default();
@@ -277,6 +302,8 @@ TextInput.propTypes = {
     'cpf',
     'phone',
     'postal-code',
+    'credit-card',
+    'custom',
   ]),
   align: PropTypes.oneOf(['left', 'center', 'right']),
 };
