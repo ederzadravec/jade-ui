@@ -46,14 +46,14 @@ const InputLabel = styled.label`
     value ? theme.palette.primary.main : theme.palette.disabled.main};
 `;
 
-export const Switch = ({ value, label, labelFalse, labelTrue, error, onChange }) => {
+export const Switch = ({ value, label, labelFalse, labelTrue, error, onChange, ...props }) => {
   const handleOnChange = e => {
     onChange(e, !value);
   };
 
   return (
     <BaseInput error={error}>
-      <Content onClick={handleOnChange}>
+      <Content onClick={handleOnChange} {...props}>
         <Label>{label}</Label>
 
         <InputLabel value={false}>{labelFalse}</InputLabel>

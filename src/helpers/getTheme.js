@@ -1,4 +1,4 @@
-const hexToRGB = color => {
+const hexToRGB = (color) => {
   let newColor = color;
 
   if (newColor.indexOf('#') === 0) {
@@ -20,7 +20,7 @@ const hexToRGB = color => {
   };
 };
 
-const readableColor = hex => {
+const readableColor = (hex) => {
   const color = hexToRGB(hex);
 
   const r = parseInt(color.red, 16);
@@ -93,6 +93,7 @@ export const getTheme = (theme = {}) => {
   const palette = defaultPalette(theme);
 
   return {
+    ...theme,
     palette: {
       ...palette,
       readableColor,
@@ -103,6 +104,7 @@ export const getTheme = (theme = {}) => {
       },
     },
     components: {
+      ...theme.components,
       header: {
         background: palette.primary.main,
         text: palette.primary.text,
@@ -124,20 +126,19 @@ export const getTheme = (theme = {}) => {
         lineColor: '#BBB',
         ...theme?.components?.textInput,
       },
-      ...theme.components,
     },
     spacing: {
       unit: 8,
       ...theme.spacing,
     },
     typography: {
+      ...theme.typography,
       fontFamily: 'Open Sans',
       text: {
         color: palette.text.dark,
         fontSize: 14,
         ...theme.typography?.text,
       },
-      ...theme.typography,
     },
     screens: {
       xs: (data, include) =>
