@@ -6,12 +6,15 @@ import { Grid } from '../';
 const Container = styled(Grid)`
   padding: ${({ theme }) => theme.spacing.unit * 1.5}px;
   background: ${({ theme }) => theme.palette.primary.main};
-  color: #fff;
-  font-weight: bold;
+  border-top-left-radius: ${({ theme }) => theme.components.tableList.borderRadius}px;
+  border-top-right-radius: ${({ theme }) => theme.components.tableList.borderRadius}px;
+  text-align: ${({ theme }) => theme.components.tableList.headerAlign};
 `;
 
 const Label = styled.label`
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.components.tableList.headerFontSize}px;
+  font-weight: ${({ theme }) => theme.components.tableList.headerFontHeight};
+  color: ${({ theme }) => theme.components.tableList.headerColor || theme.palette.primary.text};
 `;
 
 export const TableHeader = ({ config }) => {

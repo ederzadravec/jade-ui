@@ -52,7 +52,7 @@ const Container = styled.button`
 `;
 
 const Label = styled.label`
-  color: ${({ theme }) => theme.palette.colors.white};
+  color: ${({ theme, color }) => theme.palette[color].text};
   font-weight: bold;
   cursor: pointer;
 
@@ -72,8 +72,8 @@ const Label = styled.label`
 `;
 
 const ButtonIcon = styled.span`
-  font-size: 30px;
-  color: ${({ theme }) => theme.palette.colors.white};
+  font-size: 20px;
+  color: ${({ theme, colorIcon }) => theme.palette[colorIcon].text};
 
   ${({ margin, theme }) => `margin-${margin}: ${theme.spacing.unit}px`};
 
@@ -113,14 +113,14 @@ export const Button = ({
   }
 
   return (
-    <Container variant={variant} color={color} disabled={disabled} onClick={onClick} {...props} >
-      {iconBefore && <ButtonIcon as={iconBefore} variant={variant} color={color} margin="right" />}
+    <Container variant={variant} color={color} disabled={disabled} onClick={onClick} {...props}>
+      {iconBefore && <ButtonIcon as={iconBefore} variant={variant} colorIcon={color} margin="right" />}
 
       <Label variant={variant} color={color}>
         {children}
       </Label>
 
-      {iconAfter && <ButtonIcon as={iconAfter} variant={variant} color={color} margin="left" />}
+      {iconAfter && <ButtonIcon as={iconAfter} variant={variant} colorIcon={color} margin="left" />}
     </Container>
   );
 };

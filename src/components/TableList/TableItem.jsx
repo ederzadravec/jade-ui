@@ -4,22 +4,32 @@ import * as R from 'ramda';
 
 import { Grid } from '../';
 
+const Container = styled.div`
+  border-bottom-right-radius: ${({ theme }) => theme.components.tableList.borderRadius}px;
+  border-bottom-left-radius: ${({ theme }) => theme.components.tableList.borderRadius}px;
+  overflow: hidden;
+`;
+
 const Content = styled(Grid)`
   padding: ${({ theme }) => theme.spacing.unit * 1.5}px;
-  background: rgba(0, 0, 0, 0.02);
+  background: ${({ theme }) => theme.components.tableList.itemBackground};
+  text-align: ${({ theme }) => theme.components.tableList.itemAlign};
 
   &:nth-child(even) {
-    background: rgba(0, 0, 0, 0.06);
+    background: ${({ theme }) => theme.components.tableList.itemBackgroundEven};
   }
 
   &:hover {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.1);
+    background: ${({ theme }) => theme.components.tableList.itemBackgroundHover};
   }
 `;
 
 const Value = styled.label`
-  font-size: 12px;
+  display: block;
+  font-size: ${({ theme }) => theme.components.tableList.itemFontSize}px;
+  color: ${({ theme }) => theme.components.tableList.itemColor};
+  text-align: ${({ align }) => align || 'unset'};
 `;
 
 export const TableItem = ({ config, data, onSelect }) => {
@@ -51,6 +61,6 @@ export const TableItem = ({ config, data, onSelect }) => {
           <Value>{getValue(value, item)}</Value>
         </Grid>
       ))}
-    </Content>
-  ));
+    </Container>
+  );
 };

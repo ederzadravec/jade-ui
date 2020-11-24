@@ -38,6 +38,7 @@ const Input = styled.input`
   margin-top: 16px;
   color: ${({ theme }) => theme.palette.text.dark};
   height: 32px;
+  transition: 0.4s;
 
   &:focus {
     outline: none;

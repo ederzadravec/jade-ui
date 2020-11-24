@@ -17,38 +17,39 @@ const Label = styled.label`
 
   color: ${({ focus, theme }) => (focus ? theme.palette.primary.main : theme.palette.text.dark)};
 
-  ${({ float }) =>
+  ${({ float, theme }) =>
     float
       ? `
       margin-top: 0px;
-      font-size: 12px
+      font-size: ${theme.components.select.floatLabel}px
   `
       : `
       margin-top: 20px;
-      font-size: 16px
+      font-size: ${theme.components.select.label}px
     `}
 `;
 
 const Input = styled.input`
   border: none;
-  border-bottom: 1px solid #bbb;
+  border-bottom: 1px solid
+    ${({ theme, focus }) =>
+      focus ? theme.palette.primary.main : theme.components.select.lineColor};
   background: none;
   margin-top: 16px;
   height: 32px;
   color: ${({ theme }) => theme.palette.text.dark};
-
-  &:focus {
-    outline: none;
-    border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main};
-  }
+  font-size: ${({ theme }) => theme.components.select.label}px;
+  transition: 0.4s;
+  outline: none;
 
   ${({ error, theme }) => (error ? `border-color: ${theme.palette.error.main}` : '')};
   text-align: ${({ align }) => align};
 `;
 
 const Icon = styled.span`
+  transition: 0.4s;
   position: absolute;
-  top: 16px;
+  top: 20px;
   right: 8px;
   color: ${({ focus, theme }) => (focus ? theme.palette.primary.main : theme.palette.text.dark)};
   cursor: pointer;
@@ -192,6 +193,7 @@ export const Select = ({
           ref={inputRef}
           align={align}
           onFocus={handleOnFocus}
+          focus={isFocused}
           value={floatingLabel ? getLabel() : ''}
           {...props}
         />
