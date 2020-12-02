@@ -16,8 +16,8 @@ const Label = styled.label`
 
 export const TableHeader = ({ config }) => {
   return (
-    <Container container>
-      {config.map((item) => (
+    <Container container spacing={0}>
+      {config.map(item => (
         <Grid key={JSON.stringify(item)} size={item.size} spacing={0}>
           <Label>{item.name}</Label>
         </Grid>
