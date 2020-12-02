@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
 
-  min-height: 72px;
+  min-height: ${({noForm})=> noForm ? "72px" : "unset"} ;
 
   margin-bottom: ${({ theme }) => theme.spacing.unit * 1}px;
 `;

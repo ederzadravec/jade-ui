@@ -35,9 +35,9 @@ const Label = styled.div`
   width: calc(100% - 30px);
 `;
 
-export const BoxInput = ({ color, variant, value, label, children, onChange, error, ...props }) => {
+export const BoxInput = ({ color, variant, value, label, children, onChange, error, noForm, ...props }) => {
   return (
-    <BaseInput error={error}>
+    <BaseInput error={error} noForm={noForm}>
       <Container
         {...props}
         onClick={(e) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Playground } from 'docz';
-import { Provider } from './Components/Provider/Provider';
+import { Provider } from './components/Provider/Provider';
 import { createGlobalStyle } from 'styled-components';
 
 export default ({ ...props }) => {

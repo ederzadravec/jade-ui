@@ -18,7 +18,7 @@ export const TableHeader = ({ config }) => {
   return (
     <Container container>
       {config.map((item) => (
-        <Grid key={JSON.stringify(item)} size={item.size}>
+        <Grid key={JSON.stringify(item)} size={item.size} spacing={0}>
           <Label>{item.name}</Label>
         </Grid>
       ))}
