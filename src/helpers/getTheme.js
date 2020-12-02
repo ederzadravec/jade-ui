@@ -1,4 +1,4 @@
-const hexToRGB = (color) => {
+const hexToRGB = color => {
   let newColor = color;
 
   if (newColor.indexOf('#') === 0) {
@@ -20,7 +20,7 @@ const hexToRGB = (color) => {
   };
 };
 
-const readableColor = (hex) => {
+const readableColor = hex => {
   const color = hexToRGB(hex);
 
   const r = parseInt(color.red, 16);
@@ -101,7 +101,7 @@ export const getTheme = (theme = {}) => {
       colors: {
         white: '#fff',
         black: '#000',
-         grey: {
+        grey: {
           '50': '#fafafa',
           '100': '#f5f5f5',
           '200': '#eeeeee',

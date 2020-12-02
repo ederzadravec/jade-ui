@@ -17,14 +17,14 @@ const Container = styled.div`
   width: 100%;
   max-height: 250px;
 
-  top: 35px;
+  top: 47px;
   left: 0;
 
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 
   background: #fff;
-  border: 1px solid #BBB;
+  border: 1px solid #bbb;
   z-index: 1001;
 
   display: ${({ visible }) => (visible ? 'block' : 'none')};

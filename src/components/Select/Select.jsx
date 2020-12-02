@@ -13,7 +13,7 @@ const Label = styled.label`
   left: 0px;
   cursor: pointer;
   text-align: ${({ align }) => align};
-  transition: .4s
+  transition: 0.4s;
 
   color: ${({ focus, theme }) => (focus ? theme.palette.primary.main : theme.palette.text.dark)};
 
@@ -21,19 +21,20 @@ const Label = styled.label`
     float
       ? `
       margin-top: 0px;
-      font-size: 10px
+      font-size: 12px
   `
       : `
-      margin-top: 16px;
-      font-size: 12px
+      margin-top: 20px;
+      font-size: 16px
     `}
 `;
 
 const Input = styled.input`
   border: none;
-  border-bottom: 1px solid #BBB;
+  border-bottom: 1px solid #bbb;
   background: none;
   margin-top: 16px;
+  height: 32px;
   color: ${({ theme }) => theme.palette.text.dark};
 
   &:focus {
@@ -176,7 +177,7 @@ export const Select = ({
   const floatingLabel = hasValue || isFocused;
 
   return (
-    <div>
+    <>
       <BaseInput error={error} align={align}>
         <Label
           align={align}
@@ -206,7 +207,7 @@ export const Select = ({
           onChange={handleOnChange}
         />
       </BaseInput>
-    </div>
+    </>
   );
 };
 
