@@ -135,7 +135,13 @@ export const getTheme = (theme = {}) => {
         ...theme.components?.button,
       },
       textInput: {
-        lineColor: '#BBB',
+        borderColor: '#BBB',
+        borderType: 'border-bottom',
+        borderRadius: 0,
+        labelTop: 20,
+        floatLabelTop: 0,
+        heightInput: 32,
+        paddingInput: 0,
         ...theme?.components?.textInput,
       },
       tableList: {

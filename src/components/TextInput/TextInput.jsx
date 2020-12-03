@@ -15,34 +15,40 @@ const Label = styled.label`
   cursor: pointer;
   text-align: ${({ align }) => align};
   transition: 0.4s;
-
+  margin-left: ${({ theme }) => theme.components.textInput.labelLeft}px;
   color: ${({ focus, theme }) => (focus ? theme.palette.primary.main : theme.palette.text.dark)};
 
-  ${({ float }) =>
+  ${({ float, theme }) =>
     float
       ? `
-      margin-top: 0px;
-      font-size: 12px
-  `
+        font-size: 12px; 
+        margin-top: ${theme.components.textInput.floatLabelTop}px;
+        `
       : `
-      margin-top: 20px;
-      font-size: 16px
-    `}
+        font-size: 16px;
+        margin-top: ${theme.components.textInput.labelTop}px;
+      `};
 `;
 
 const Input = styled.input`
   border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.components.textInput.lineColor};
+
+  ${({ theme }) =>
+    `${theme.components.textInput.borderType} : 1px solid  ${theme.components.textInput.borderColor}`};
+  border-radius: ${({ theme }) => theme.components.textInput.borderRadius}px;
+
   background: none;
   font-size: 16px;
   margin-top: 16px;
+  padding: ${({ theme }) => theme.components.textInput.paddingInput};
   color: ${({ theme }) => theme.palette.text.dark};
-  height: 32px;
+  height: ${({ theme }) => theme.components.textInput.heightInput}px;
   transition: 0.4s;
 
   &:focus {
     outline: none;
-    border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main};
+    ${({ theme }) =>
+      `${theme.components.textInput.borderType} : 1px solid  ${theme.palette.primary.main}`};
   }
 
   ${({ error, theme }) => (error ? `border-color: ${theme.palette.error.main}` : '')};
