@@ -2,7 +2,7 @@ import React from 'react';
 import * as Spinners from 'react-spinners';
 import styled, { ThemeContext } from 'styled-components';
 
-const Container = styled.section`
+const Container = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -11,13 +11,14 @@ const Container = styled.section`
   padding: ${({ theme }) => theme.spacing.unit * 3}px;
 `;
 
-const LoaderComponent = styled.section`
+const LoaderComponent = styled.div`
   display: flex;
   position: absolute;
   z-index: 2;
   flex: 1;
   transition: 0.4s;
   opacity: ${({ show }) => (show ? 1 : 0)};
+  align-self: center;
 `;
 
 const Children = styled.section`

@@ -61,6 +61,6 @@ export const TableItem = ({ config, data, onSelect }) => {
           <Value>{getValue(value, item)}</Value>
         </Grid>
       ))}
-    </Container>
-  );
+    </Content>
+  ));
 };
