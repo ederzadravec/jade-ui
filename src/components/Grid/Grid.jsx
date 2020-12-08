@@ -7,7 +7,8 @@ import { Space } from '../Space/Space';
 const Container = styled(Space)`
   display: flex;
   flex-direction: row;
-  width: calc(100% + ${({ spacing }) => spacing}px);
+  width: 100%;
+  max-width: calc(100% + ${({ spacing }) => spacing}px);
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-left: -${({ spacing }) => spacing / 2}px;
@@ -24,12 +25,12 @@ const Content = styled(Space)`
     flex-direction: ${direction};
     padding-left: ${spacing / 2}px;
     padding-right: ${spacing / 2}px;
-    margin-bottom: ${spacing}px;
+    width: 100%;
 
-    width: ${(100 / 12) * (size.xl || size.lg || size.md || size.sm || size.xs || 12)}%;
+    max-width: ${(100 / 12) * (size.xl || size.lg || size.md || size.sm || size.xs || 12)}%;
 
     ${Object.keys(size)
-      .map(key => theme.screens[key](`width:${(100 / 12) * size[key]}%`, size[key]))
+      .map(key => theme.screens[key](`max-width:${(100 / 12) * size[key]}%`, size[key]))
       .join(';')}
   `};
 `;

@@ -8,7 +8,6 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   justify-content: center;
-  padding: ${({ theme }) => theme.spacing.unit * 3}px;
 `;
 
 const LoaderComponent = styled.div`

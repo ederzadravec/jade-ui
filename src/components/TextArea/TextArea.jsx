@@ -14,35 +14,41 @@ const Label = styled.label`
   text-align: ${({ align }) => align};
   transition: 0.4s;
 
+  margin-left: ${({ theme }) => theme.components.textArea.labelLeft}px;
   color: ${({ focus, theme }) => (focus ? theme.palette.primary.main : theme.palette.text.dark)};
 
-  ${({ float }) =>
+  ${({ float, theme }) =>
     float
       ? `
-      margin-top: 0px;
-      font-size: 10px
-  `
+        font-size: 12px;
+        margin-top: ${theme.components.textArea.floatLabelTop}px;
+        `
       : `
-      margin-top: 16px;
-      font-size: 12px
-    `}
+        font-size: 16px;
+        margin-top: ${theme.components.textArea.labelTop}px;
+      `};
 `;
 
 const Input = styled.textarea`
   border: none;
-  border-bottom: 1px solid #BBB;
+  ${({ theme }) =>
+    `${theme.components.textArea.borderType} : 1px solid  ${theme.components.textArea.borderColor}`};
+  border-radius: ${({ theme }) => theme.components.textArea.borderRadius}px;
+  font-size: 16px;
   background: none;
   margin-top: 16px;
+  padding: ${({ theme }) => theme.components.textArea.paddingInput};
   color: ${({ theme }) => theme.palette.text.dark};
   resize: vertical;
 
   &:focus {
     outline: none;
-    border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main};
+    ${({ theme }) =>
+      `${theme.components.textArea.borderType} : 1px solid  ${theme.palette.primary.main}`};
   }
 
   ${({ error, theme }) => (error ? `border-color: ${theme.palette.error.main}` : '')};
-  text-align: ${({ align }) => align};
+  text-align: ${({ align }) => align  };
 `;
 
 const createDebounce = debounce => debounceFunc(debounce, exec => exec());
