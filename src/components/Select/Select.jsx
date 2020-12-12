@@ -223,4 +223,8 @@ Select.defaultProps = {
 
 Select.propTypes = {
   align: PropTypes.oneOf(['left', 'center', 'right']),
+  config: PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string,
+  }),
 };

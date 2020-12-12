@@ -128,6 +128,8 @@ export const getTheme = (theme = {}) => {
       button: {
         height: '36px',
         width: '140px',
+        maxWidth: 'max-content',
+        padding: '0 12px',
         borderRadius: '5px',
         borderWidth: '2px',
         labelPadding: '0',

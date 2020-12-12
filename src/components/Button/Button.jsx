@@ -17,7 +17,10 @@ const Container = styled.button`
   border-radius: ${({ theme }) => theme.components.button.borderRadius};
   border-width: ${({ theme }) => theme.components.button.borderWidth};
   height: ${({ theme }) => theme.components.button.height};
-  width: ${({ theme }) => theme.components.button.width};
+  min-width: ${({ theme }) => theme.components.button.width};
+  width: 100%;
+  max-width: ${({ theme }) => theme.components.button.maxWidth};
+  padding: ${({ theme }) => theme.components.button.padding};
 
   transition: 0.4s;
 

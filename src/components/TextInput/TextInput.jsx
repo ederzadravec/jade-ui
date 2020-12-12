@@ -21,7 +21,7 @@ const Label = styled.label`
   ${({ float, theme }) =>
     float
       ? `
-        font-size: 12px; 
+        font-size: 12px;
         margin-top: ${theme.components.textInput.floatLabelTop}px;
         `
       : `
@@ -86,6 +86,7 @@ const getMask = (variant, config) => {
       }),
     }),
     date: () => ({ mask: [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/] }),
+    time: () => ({ mask: [/\d/, /\d/, ':', /\d/, /\d/] }),
     timedate: () => ({
       mask: [
         /\d/,
@@ -305,6 +306,7 @@ TextInput.propTypes = {
     'decimal',
     'date',
     'timedate',
+    'time',
     'money',
     'cpf',
     'phone',
