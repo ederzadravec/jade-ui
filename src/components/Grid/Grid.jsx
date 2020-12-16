@@ -7,8 +7,7 @@ import { Space } from '../Space/Space';
 const Container = styled(Space)`
   display: flex;
   flex-direction: row;
-  width: 100%;
-  max-width: calc(100% + ${({ spacing }) => spacing}px);
+  width: calc(100% + ${({ spacing }) => spacing}px);
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-left: -${({ spacing }) => spacing / 2}px;

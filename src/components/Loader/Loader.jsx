@@ -22,6 +22,7 @@ const LoaderComponent = styled.div`
 
 const Children = styled.section`
   display: flex;
+  flex-direction: ${({ direction }) => direction};
   position: relative;
   width: 100%;
   z-index: 1;
@@ -38,6 +39,7 @@ export const Loader = ({
   size,
   margin,
   children,
+  direction,
   ...props
 }) => {
   const theme = React.useContext(ThemeContext);
@@ -56,12 +58,15 @@ export const Loader = ({
         />
       </LoaderComponent>
 
-      <Children show={!show}>{children}</Children>
+      <Children show={!show} direction={direction}>
+        {children}
+      </Children>
     </Container>
   );
 };
 
 Loader.defaultProps = {
+  direction: 'row',
   spinner: 'BounceLoader',
   color: 'primary',
   size: 50,
