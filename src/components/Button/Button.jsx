@@ -99,9 +99,16 @@ export const Button = ({
   loading,
   ...props
 }) => {
+  const inputRef = React.useRef();
   const theme = React.useContext(ThemeContext);
 
   const color = disabled ? 'disabled' : colorProp;
+
+  const handleLabelOnClick = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    inputRef?.current?.click();
+  };
 
   if (loading) {
     const spinnerCollor =
@@ -116,10 +123,18 @@ export const Button = ({
   }
 
   return (
-    <Container variant={variant} color={color} disabled={disabled} onClick={onClick} {...props}>
-      {iconBefore && <ButtonIcon as={iconBefore} variant={variant} colorIcon={color} margin="right" />}
+    <Container
+      ref={inputRef}
+      variant={variant}
+      color={color}
+      disabled={disabled}
+      onClick={onClick}
+      {...props}>
+      {iconBefore && (
+        <ButtonIcon as={iconBefore} variant={variant} colorIcon={color} margin="right" />
+      )}
 
-      <Label variant={variant} color={color}>
+      <Label variant={variant} color={color} onClick={handleLabelOnClick}>
         {children}
       </Label>
 
