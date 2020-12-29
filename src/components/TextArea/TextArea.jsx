@@ -48,7 +48,7 @@ const Input = styled.textarea`
   }
 
   ${({ error, theme }) => (error ? `border-color: ${theme.palette.error.main}` : '')};
-  text-align: ${({ align }) => align  };
+  text-align: ${({ align }) => align};
 `;
 
 const createDebounce = debounce => debounceFunc(debounce, exec => exec());
@@ -74,7 +74,10 @@ export const TextArea = ({
   });
 
   React.useEffect(() => {
-    if (value !== valueProp) setState({ value: valueProp });
+    if (value !== valueProp) {
+      if (!valueProp) inputRef.current.value = valueProp;
+      setState({ value: valueProp });
+    }
   }, [valueProp]);
 
   const onChangeDebounce = React.useCallback(createDebounce(debounce), []);

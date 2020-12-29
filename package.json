@@ -9,6 +9,7 @@
   "author": "Eder Zadravec",
   "license": "MIT",
   "scripts": {
+    "dev": "docz dev --p 3030",
     "build": "babel src -d build",
     "docz": "docz"
   },
