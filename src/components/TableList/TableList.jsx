@@ -19,10 +19,10 @@ const NoData = styled.div`
   text-align: center;
 `;
 
-export const TableList = ({ config, data, onSelect }) => {
+export const TableList = ({ config, data, onSelect, color }) => {
   return (
     <Container>
-      <TableHeader config={config} />
+      <TableHeader config={config} color={color} />
 
       <TableItem config={config} data={data} onSelect={onSelect} />
 
@@ -33,4 +33,5 @@ export const TableList = ({ config, data, onSelect }) => {
 
 TableList.defaultProps = {
   onSelect: () => {},
+  color: 'primary',
 };

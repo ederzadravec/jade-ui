@@ -21,11 +21,11 @@ const Label = styled.label`
   ${({ float, theme }) =>
     float
       ? `
-        font-size: 12px;
+        font-size: ${theme.components.textInput.floatLabelSize}px;
         margin-top: ${theme.components.textInput.floatLabelTop}px;
         `
       : `
-        font-size: 16px;
+        font-size:  ${theme.components.textInput.valueSize}px;
         margin-top: ${theme.components.textInput.labelTop}px;
       `};
 `;
@@ -38,7 +38,7 @@ const Input = styled.input`
   border-radius: ${({ theme }) => theme.components.textInput.borderRadius}px;
 
   background: none;
-  font-size: 16px;
+  font-size:  ${({ theme }) => theme.components.textInput.valueSize}px;
   margin-top: 16px;
   padding: ${({ theme }) => theme.components.textInput.paddingInput};
   color: ${({ theme }) => theme.palette.text.dark};
