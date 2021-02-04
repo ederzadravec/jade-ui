@@ -9,10 +9,11 @@ const Content = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
 const Label = styled.label`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.components.switch.labelSize}px;
   margin-right: 24px;
 `;
 
@@ -20,13 +21,14 @@ const Input = styled.div`
   height: 24px;
   width: 48px;
   border-radius: 12px;
-  background: ${({ value, theme }) =>
-    value ? theme.palette.primary.main : theme.palette.disabled.main};
+  background: ${({ value, theme, color }) =>
+    value ? theme.palette[color].main : theme.palette.disabled.main};
   padding: 2px;
   display: flex;
   flex-direction: row;
   margin: 0 8px;
   transition: 0.4s;
+  opacity: ${({ disabled }) => (disabled ? '.5' : '1')};
 
   &:after {
     content: ' ';
@@ -40,25 +42,37 @@ const Input = styled.div`
 `;
 
 const InputLabel = styled.label`
-  font-size: 12px;
+  font-size: ${({ theme }) => theme.components.switch.valueSize}px;
   font-weight: bold;
-  color: ${({ value, theme }) =>
-    value ? theme.palette.primary.main : theme.palette.disabled.main};
+  color: ${({ value, theme, color }) =>
+    value ? theme.palette[color].main : theme.palette.disabled.main};
 `;
 
-export const Switch = ({ value, label, labelFalse, labelTrue, error, onChange, ...props }) => {
+export const Switch = ({
+  value,
+  label,
+  labelFalse,
+  labelTrue,
+  error,
+  onChange,
+  color,
+  disabled,
+  ...props
+}) => {
   const handleOnChange = e => {
     onChange(e, !value);
   };
 
   return (
     <BaseInput error={error}>
-      <Content onClick={handleOnChange} {...props}>
+      <Content onClick={e => disabled || handleOnChange(e)} disabled={disabled} {...props}>
         <Label>{label}</Label>
 
         <InputLabel value={false}>{labelFalse}</InputLabel>
-        <Input value={value} />
-        <InputLabel value={true}>{labelTrue}</InputLabel>
+        <Input value={value} color={color} disabled={disabled} />
+        <InputLabel value={true} color={color}>
+          {labelTrue}
+        </InputLabel>
       </Content>
     </BaseInput>
   );
@@ -69,13 +83,17 @@ Switch.defaultProps = {
   onChange: () => {},
   labelTrue: 'Sim',
   labelFalse: 'Não',
+  color: 'primary',
+  disabled: false,
 };
 
 Switch.propTypes = {
   value: P.bool,
+  disabled: P.func,
   onChange: P.func,
   label: P.string,
   labelTrue: P.string,
   labelFalse: P.string,
   error: P.string,
+  color: P.string,
 };
