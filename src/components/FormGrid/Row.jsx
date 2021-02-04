@@ -6,7 +6,6 @@ import { Grid } from '../Grid/Grid';
 import { Column } from './Column';
 
 const Container = styled(Grid)`
-
 `;
 
 export const Row = ({ config }) => {
