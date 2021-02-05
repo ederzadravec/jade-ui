@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Grid } from '../Grid/Grid';
 
-const Container = styled(Grid)`
-  padding: 8px 8px;
-`;
+const Container = styled(Grid)``;
 
 export const Column = ({ type, schema, props, size, last, hide }) => {
   const Component = !hide()
