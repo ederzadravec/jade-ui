@@ -26,6 +26,8 @@ const Content = styled(Grid)`
 `;
 
 const Value = styled.label`
+  flex: 1;
+  cursor: pointer;
   display: block;
   font-size: ${({ theme }) => theme.components.tableList.itemFontSize}px;
   color: ${({ theme }) => theme.components.tableList.itemColor};
@@ -58,7 +60,7 @@ export const TableItem = ({ config, data, onSelect }) => {
           size={item.size}
           onClick={handleColumnClick(value, item)}
           spacing={0}>
-          <Value>{getValue(value, item)}</Value>
+          <Value align={item.align}>{getValue(value, item)}</Value>
         </Grid>
       ))}
     </Content>

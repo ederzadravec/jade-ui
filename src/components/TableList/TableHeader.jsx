@@ -12,10 +12,12 @@ const Container = styled(Grid)`
 `;
 
 const Label = styled.label`
+  flex: 1;
   font-size: ${({ theme }) => theme.components.tableList.headerFontSize}px;
   font-weight: ${({ theme }) => theme.components.tableList.headerFontHeight};
   color: ${({ theme, color }) =>
     theme.components.tableList.headerColor || theme.palette[color].text};
+  text-align: ${({ align }) => align || 'unset'};
 `;
 
 export const TableHeader = ({ config, color }) => {
@@ -23,7 +25,9 @@ export const TableHeader = ({ config, color }) => {
     <Container container spacing={0} color={color}>
       {config.map(item => (
         <Grid key={JSON.stringify(item)} size={item.size} spacing={0} color={color}>
-          <Label color={color}>{item.name}</Label>
+          <Label color={color} align={item.align}>
+            {item.name}
+          </Label>
         </Grid>
       ))}
     </Container>
