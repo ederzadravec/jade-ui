@@ -1,6 +1,6 @@
 {
   "name": "@ederzadravec/jade-ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "build/index.js",
   "files": [
     "build/*"
