@@ -80,10 +80,10 @@ const ButtonIcon = styled.span`
 
   ${({ margin, theme }) => `margin-${margin}: ${theme.spacing.unit}px`};
 
-  ${({ variant, color, theme }) => {
+  ${({ variant, colorIcon, theme }) => {
     if (variant === 'outline' || variant === 'transparent')
       return `
-        color: ${theme.palette[color].main};
+        color: ${theme.palette[colorIcon].main};
       `;
   }}
 `;
