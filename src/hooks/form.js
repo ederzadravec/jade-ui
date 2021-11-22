@@ -71,8 +71,8 @@ export const useForm = (
   };
 
   const trySave = (callback = () => {}) => e => {
-    e.preventDefault();
-    e.stopPropagation();
+    e?.preventDefault();
+    e?.stopPropagation();
 
     if (!R.isEmpty(errors) && !R.isNil(errors)) {
       setState({ triedSave: true });
